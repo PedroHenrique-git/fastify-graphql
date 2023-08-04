@@ -3,7 +3,7 @@ import { createYogaInstance } from '@/infrastructure/yoga';
 import { fastify } from 'fastify';
 import { createServer } from 'http';
 
-const app = fastify({
+export const app = fastify({
   logger: true,
   serverFactory: (handler) => {
     const server = createServer((req, res) => {
@@ -14,7 +14,7 @@ const app = fastify({
   },
 });
 
-const yoga = createYogaInstance(app);
+export const yoga = createYogaInstance(app);
 
 app.register(yogaRegister(yoga), { prefix: 'api' });
 

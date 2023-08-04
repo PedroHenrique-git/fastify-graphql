@@ -12,7 +12,7 @@
     "start": "node -r dotenv/config ./dist/presentation/server.js dotenv_config_path=.env.production",
     "dev": "ts-node-dev -r dotenv/config -r tsconfig-paths/register ./src/presentation/server.ts dotenv_config_path=.env.development",
     "prepare": "husky install",
-    "test": "mocha --require ts-node/register src/**/*.spec.ts"
+    "test": "mocha -r dotenv/config -r tsconfig-paths/register --require ts-node/register src/**/*.spec.ts dotenv_config_path=.env.test"
   },
   "repository": {
     "type": "git",
